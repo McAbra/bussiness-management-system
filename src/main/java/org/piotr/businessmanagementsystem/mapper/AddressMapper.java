@@ -6,15 +6,20 @@ import org.piotr.businessmanagementsystem.model.Address;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AddressToDtoMapper {
+public class AddressMapper {
 
     private final ModelMapper modelMapper;
 
-    public AddressToDtoMapper(ModelMapper modelMapper) {
+    public AddressMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
-    public AddressDto addressToDtoMapper(Address address){
+    public AddressDto addressToDtoMapper(Address address) {
         return modelMapper.map(address, AddressDto.class);
     }
+
+    public Address DtoToAddressMapper(AddressDto addressDto) {
+        return modelMapper.map(addressDto, Address.class);
+    }
+
 }

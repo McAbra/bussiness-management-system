@@ -1,6 +1,5 @@
 package org.piotr.businessmanagementsystem.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,14 +23,5 @@ public class Address {
     @JoinColumn(name = "customerId")
     private Customer customer;
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "addressId=" + addressId +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", number='" + number + '\'' +
-                ", customer=" + customer +
-                '}';
-    }
+
 }
