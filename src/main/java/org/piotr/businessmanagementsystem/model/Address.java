@@ -19,8 +19,19 @@ public class Address {
     private String city;
     private String street;
     private String number;
+    private String zipCode;
     @ManyToOne
     @JoinColumn(name = "customerId")
     private Customer customer;
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "addressId=" + addressId +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", number='" + number + '\'' +
+                ", customer=" + customer +
+                '}';
+    }
 }

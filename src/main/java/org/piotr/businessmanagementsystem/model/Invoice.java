@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -29,16 +28,13 @@ public class Invoice {
     @JoinColumn(name = "customerId", referencedColumnName = "customerId")
     private Customer customer;
 
-    @Temporal(TemporalType.DATE)
-    private Date issueDate;
+    private LocalDate issueDate;
 
     private Long paymentTerms;
 
-    @Temporal(TemporalType.DATE)
-    private Date dueDate;
+    private LocalDate dueDate;
 
-    @Temporal(TemporalType.DATE)
-    private Date paymentDate;
+    private LocalDate paymentDate;
 
     @OneToMany
     @JoinTable(name = "invoice_product")

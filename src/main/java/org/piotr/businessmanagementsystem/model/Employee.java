@@ -1,17 +1,17 @@
 package org.piotr.businessmanagementsystem.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "employees")
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@Setter
+@Setter(value = AccessLevel.PUBLIC)
 public class Employee {
 
     @Id
@@ -23,7 +23,7 @@ public class Employee {
     private String personPhoneNo;
     @ManyToOne
     @JoinColumn(name = "customerId")
-    private Customer customer;
+    private Customer employer;
 
 
 }

@@ -1,6 +1,7 @@
 package org.piotr.businessmanagementsystem.service;
 
 import org.piotr.businessmanagementsystem.model.Customer;
+import org.piotr.businessmanagementsystem.model.Employee;
 import org.piotr.businessmanagementsystem.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -39,5 +40,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Boolean checkIfCustomerInDB(Customer customer){
         return customerRepository.findCustomerByVatNumber(customer.getVatNumber()).isPresent();
+    }
+
+    @Override
+    public void addEmployee(Customer customer, Employee employee) {
+        customer.getCustomerEmployees().add(employee);
+        System.out.println(customer);
+        customerRepository.save(customer);
     }
 }

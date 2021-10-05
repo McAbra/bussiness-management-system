@@ -1,6 +1,7 @@
 package org.piotr.businessmanagementsystem.service;
 
 import org.piotr.businessmanagementsystem.model.Customer;
+import org.piotr.businessmanagementsystem.model.Employee;
 
 import java.rmi.NoSuchObjectException;
 import java.util.List;
@@ -16,6 +17,8 @@ public interface CustomerService {
     void addCustomer(Customer customer);
 
     Boolean checkIfCustomerInDB(Customer customer);
+
+    void addEmployee(Customer customer, Employee employee);
 
 
 }

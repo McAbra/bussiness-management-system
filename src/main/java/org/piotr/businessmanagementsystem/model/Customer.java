@@ -8,9 +8,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "customers")
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
+@Setter(value = AccessLevel.PACKAGE)
 public class Customer {
 
     @Id
@@ -23,7 +25,17 @@ public class Customer {
     private Address address;
     @OneToMany(mappedBy = "customer")
     private List<Address> shippingAddresses = new ArrayList<>();
-    @OneToMany (mappedBy = "customer")
+    @OneToMany (mappedBy = "employer")
     private List<Employee> customerEmployees = new ArrayList<>();
 
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", name='" + name + '\'' +
+                ", vatNumber='" + vatNumber + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }
